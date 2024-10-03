@@ -1,0 +1,12 @@
+CREATE TABLE libraries (
+    id SERIAL PRIMARY KEY,  -- Используем SERIAL для автоинкремента
+    name VARCHAR(255) UNIQUE  -- Уникальное название библиотеки
+);
+
+CREATE TABLE book (
+    id SERIAL PRIMARY KEY,  -- Используем SERIAL для автоинкремента
+    library_id INT REFERENCES libraries(id),  -- Внешний ключ на библиотеку
+    title VARCHAR(80),
+    author VARCHAR(80),
+    status VARCHAR(8)  -- Статус книги, например, 'on_shelf' или 'on_hands'
+);
